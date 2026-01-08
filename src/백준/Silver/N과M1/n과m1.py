@@ -1,22 +1,30 @@
 import sys
 
-n,m, = map(int, sys.stdin.readline().split())
+n, m = map(int, sys.stdin.readline().split())
 rs = []
-checked = [False] * (n+1)
+
+# [변경 1] 0번부터 n-1번 인덱스를 쓸 거니까 크기는 n이면 충분합니다.
+checked = [False] * n
 
 def recursive(num):
-    if(num==m):
+    if num == m:
         print(*rs)
         return
 
-    for i in range(1,n+1):
-        if(checked[i]==False):
-            checked[i]=True
-            rs.append(i)
+    # [변경 2] range(n) -> 0, 1, 2, ..., n-1 까지 돕니다.
+    for i in range(n):
 
-            recursive(num+1)
+        # checked[0], checked[1]... 을 검사합니다.
+        if checked[i] == False:
+            checked[i] = True
 
-            checked[i]=False
+            # [변경 3] i는 0이지만, 문제에서 원하는 숫자는 1이어야 하죠?
+            # 그래서 넣을 때만 1을 더해서 넣어줍니다.
+            rs.append(i + 1)
+
+            recursive(num + 1)
+
+            checked[i] = False
             rs.pop()
 
 recursive(0)
