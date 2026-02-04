@@ -22,10 +22,7 @@ def dfs(count):
             elif selected_ops[i]==2:
                 s_sum*=s[i+1]
             else:
-                if s[i+1]<0:
-                    s_sum=-(int(s_sum)//int(s[i+1]))
-                else:
-                    s_sum//=s[i+1]
+                s_sum=int(s_sum/s[i+1])
         max_value=max(max_value,s_sum)
         min_value=min(min_value,s_sum)
         return
