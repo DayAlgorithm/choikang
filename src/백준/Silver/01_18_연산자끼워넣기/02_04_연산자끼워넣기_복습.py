@@ -39,6 +39,6 @@ def dfs(count):
             op[i]+=1
             selected_ops.pop()
 
-dfs(0,0)
+dfs(0)
 print(max_value)
 print(min_value)

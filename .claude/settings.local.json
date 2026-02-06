@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git mv:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash pop:*)",
+      "Bash(git rm:*)",
+      "Bash(git stash show:*)",
+      "Bash(git stash:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
